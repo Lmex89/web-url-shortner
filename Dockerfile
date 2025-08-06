@@ -23,15 +23,7 @@ RUN npm run build
 # Install serve globally to serve static files
 RUN npm install -g serve
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S appgroup && \
-    adduser -S appuser -u 1001 -G appgroup
 
-# Change ownership of app directory
-RUN chown -R appuser:appgroup /app
-
-# Switch to non-root user
-USER appuser
 
 # Expose port 3000
 EXPOSE 3000
