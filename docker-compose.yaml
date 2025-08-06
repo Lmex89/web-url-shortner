@@ -1,3 +1,4 @@
+
 services:
   # URL Shortener Frontend Application
   url-shortener:
@@ -9,11 +10,11 @@ services:
       - "3010:3000"
     environment:
       # Production environment variables
-      - NODE_ENV=production
-      - REACT_APP_API_URL=http://192.168.68.53:9000/
-      - REACT_APP_USE_MOCK_API=false
-      - REACT_APP_ENABLE_DEBUG=false
-      - REACT_APP_ENABLE_ANALYTICS=true
+      - VITE_NODE_ENV=production
+      - VITE_REACT_APP_API_URL=http://192.168.68.53:9000/
+      - VITE_REACT_APP_USE_MOCK_API=false
+      - VITE_REACT_APP_ENABLE_DEBUG=false
+      - VITE_REACT_APP_ENABLE_ANALYTICS=true
     restart: unless-stopped
     networks:
       - url-shortener-network
