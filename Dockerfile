@@ -37,6 +37,5 @@ USER appuser
 EXPOSE 3000
 
 
-
 # Serve the built application
 CMD [ "serve", "-s", "dist" ]
