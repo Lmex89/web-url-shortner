@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # URL Shortener Frontend Application
   url-shortener:
@@ -12,7 +10,7 @@ services:
     environment:
       # Production environment variables
       - NODE_ENV=production
-      - REACT_APP_API_URL=http://your-api-url:port
+      - REACT_APP_API_URL=http://192.168.68.53:9000/
       - REACT_APP_USE_MOCK_API=false
       - REACT_APP_ENABLE_DEBUG=false
       - REACT_APP_ENABLE_ANALYTICS=true
@@ -20,7 +18,7 @@ services:
     networks:
       - url-shortener-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3010/"]
       interval: 30s
       timeout: 10s
       retries: 3

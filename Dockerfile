@@ -3,7 +3,7 @@
 # ============================================
 
 # Use official Node.js runtime as base image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -34,11 +34,11 @@ RUN chown -R appuser:appgroup /app
 USER appuser
 
 # Expose port 3000
-EXPOSE 3000
+EXPOSE 3010
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:3000/ || exit 1
+    CMD curl -f http://localhost:3010/ || exit 1
 
 # Serve the built application
-CMD ["serve", "-s", "build", "-l", "3000"] 
+CMD ["serve", "-s", "build", "-l", "3010"] 
