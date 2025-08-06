@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # URL Shortener Frontend Application
+  url-shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: url-shortener-app
+    ports:
+      - "3010:3000"
+    environment:
+      # Production environment variables
+      - NODE_ENV=production
+      - REACT_APP_API_URL=http://your-api-url:port
+      - REACT_APP_USE_MOCK_API=false
+      - REACT_APP_ENABLE_DEBUG=false
+      - REACT_APP_ENABLE_ANALYTICS=true
+    restart: unless-stopped
+    networks:
+      - url-shortener-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  url-shortener-network:
+    driver: bridge
+
+# Optional: Add volumes for logs or persistent data
+volumes:
+  app-logs: 

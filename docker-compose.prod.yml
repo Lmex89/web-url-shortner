@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # URL Shortener Frontend Application - Production
+  url-shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+    image: url-shortener:latest
+    container_name: url-shortener-prod
+    ports:
+      - "3010:3000"  # Expose port 3010 for nginx proxy manager
+    environment:
+      # Production environment variables
+      - NODE_ENV=production
+      - REACT_APP_API_URL=${API_URL:-http://localhost:9000}
+      - REACT_APP_USE_MOCK_API=false
+      - REACT_APP_ENABLE_DEBUG=false
+      - REACT_APP_ENABLE_ANALYTICS=true
+      - REACT_APP_API_TIMEOUT=8000
+      - REACT_APP_API_RETRY_ATTEMPTS=2
+    restart: always
+    networks:
+      - url-shortener-prod-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    labels:
+      - "com.docker.compose.service=url-shortener"
+      - "description=URL Shortener React Application"
+
+
+
+networks:
+  url-shortener-prod-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  app-logs:
+    driver: local 
