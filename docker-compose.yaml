@@ -19,7 +19,6 @@ services:
     networks:
       - url-shortener-network
 
-
 networks:
   url-shortener-network:
     driver: bridge
