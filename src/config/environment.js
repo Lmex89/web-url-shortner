@@ -11,23 +11,23 @@
 const config = {
   // API Configuration
   API_URL: import.meta.env.VITE_REACT_APP_API_URL || 'https://api.example.com/v1',
-  USE_MOCK_API: import.meta.envVITE_REACT_APP_USE_MOCK_API === 'true',
-  API_TIMEOUT: parseInt(import.meta.envVITE_REACT_APP_API_TIMEOUT) || 10000,
-  API_RETRY_ATTEMPTS: parseInt(import.meta.envVITE_REACT_APP_API_RETRY_ATTEMPTS) || 3,
+  USE_MOCK_API: import.meta.env.VITE_REACT_APP_USE_MOCK_API === 'true',
+  API_TIMEOUT: parseInt(import.meta.env.ITE_REACT_APP_API_TIMEOUT) || 10000,
+  API_RETRY_ATTEMPTS: parseInt(import.meta.env.VITE_REACT_APP_API_RETRY_ATTEMPTS) || 3,
 
   // App Configuration
-  APP_NAME: import.meta.envVITE_REACT_APP_NAME || 'URL Shortener',
-  APP_VERSION: import.meta.envVITE_REACT_APP_VERSION || '1.0.0',
+  APP_NAME: import.meta.env.VITE_REACT_APP_NAME || 'URL Shortener',
+  APP_VERSION: import.meta.env.VITE_REACT_APP_VERSION || '1.0.0',
 
   // Feature Flags
-  ENABLE_ANALYTICS: import.meta.envVITE_REACT_APP_ENABLE_ANALYTICS === 'true' || false,
-  ENABLE_DEBUG: import.meta.envVITE_REACT_APP_ENABLE_DEBUG === 'true' || false,
-  SHOW_DEV_TOOLS: import.meta.envVITE_REACT_APP_SHOW_DEV_TOOLS === 'true' || false,
+  ENABLE_ANALYTICS: import.meta.env.VITE_REACT_APP_ENABLE_ANALYTICS === 'true' || false,
+  ENABLE_DEBUG: import.meta.env.VITE_REACT_APP_ENABLE_DEBUG === 'true' || false,
+  SHOW_DEV_TOOLS: import.meta.env.VITE_REACT_APP_SHOW_DEV_TOOLS === 'true' || false,
 
   // Environment Detection
-  isDevelopment: import.meta.envNODE_ENV === 'development',
-  isProduction: import.meta.envNODE_ENV === 'production',
-  isTesting: import.meta.envNODE_ENV === 'test',
+  isDevelopment: import.meta.env.NODE_ENV === 'development',
+  isProduction: import.meta.env.NODE_ENV === 'production',
+  isTesting: import.meta.env.NODE_ENV === 'test',
 };
 
 /**
