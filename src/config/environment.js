@@ -26,7 +26,7 @@ const config = {
 
   // Environment Detectio
   isDevelopment: import.meta.env.NODE_ENV === 'development',
-  isProduction: import.meta.env.NODE_ENV === 'production',
+  isProduction: process.env.NODE_ENV === 'production',
   isTesting: import.meta.env.NODE_ENV === 'test',
 };
 
