@@ -25,9 +25,9 @@ const config = {
   SHOW_DEV_TOOLS: import.meta.env.VITE_REACT_APP_SHOW_DEV_TOOLS === 'true' || false,
 
   // Environment Detectio
-  isDevelopment: import.meta.env.NODE_ENV === 'development',
-  isProduction: import.meta.env.MODE_ENV === 'production',
-  isTesting: import.meta.env.NODE_ENV === 'test',
+  isDevelopment: import.meta.env.DEV === 'development',
+  isProduction: import.meta.env.PROD === 'production',
+  isTesting: import.meta.env.DEV === 'test',
 };
 
 /**
