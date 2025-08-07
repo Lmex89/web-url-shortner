@@ -29,7 +29,7 @@ jobs:
             mv .env.example .env 
             sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" docker-compose.yaml
             sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" .env
-            sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" src/config/enviroments.js
+            sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" src/config/environment.js
           else
             echo "⚠️ Site key not set. Skipping replacement."
           fi
