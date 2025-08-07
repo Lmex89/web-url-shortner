@@ -37,7 +37,7 @@ jobs:
           echo "🚀 Building and deploying new version..."
 
           # Docker Compose will now use the modified source files for the build
-          docker-compose up -d --build
+          docker compose up -d --build
           
           echo "🧹 Pruning old Docker images..."
           docker image prune -f
