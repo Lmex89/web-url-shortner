@@ -10,7 +10,7 @@
  */
 const config = {
   // API Configuration
-  API_URL: import.meta.env.VITE_REACT_APP_API_URL || 'https://api.example.com/v1',
+  API_URL: import.meta.env.VITE_REACT_APP_API_URL || "",
   USE_MOCK_API: import.meta.env.VITE_REACT_APP_USE_MOCK_API === 'true',
   API_TIMEOUT: parseInt(import.meta.env.ITE_REACT_APP_API_TIMEOUT) || 10000,
   API_RETRY_ATTEMPTS: parseInt(import.meta.env.VITE_REACT_APP_API_RETRY_ATTEMPTS) || 3,
