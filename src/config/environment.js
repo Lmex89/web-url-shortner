@@ -25,9 +25,9 @@ const config = {
   SHOW_DEV_TOOLS: import.meta.env.VITE_REACT_APP_SHOW_DEV_TOOLS === 'true' || false,
 
   // Environment Detectio
-  isDevelopment: import.meta.env.DEV === 'development',
-  isProduction: import.meta.env.NODE_ENV === 'production',
-  isTesting: import.meta.env.DEV === 'test',
+  isDevelopment: import.meta.env.DEV === true,
+  isProduction: import.meta.env.PROD === true,
+  isTesting: import.meta.env.DEV === true,
 };
 
 /**
@@ -35,9 +35,6 @@ const config = {
  */
 const validateConfig = () => {
   const requiredVars = [];
-
-  console.log("mis variables son ",import.meta.env.NODE_ENV)
-  console.log("mis variables son ",import.meta.env.PROD)
 
   // Add required variables here
   if (!config.API_URL) {
