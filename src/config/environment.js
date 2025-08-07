@@ -36,7 +36,7 @@ const config = {
 const validateConfig = () => {
   const requiredVars = [];
 
-  console.log("mis variables son ", config)
+  //console.log("mis variables son ", config)
 
   // Add required variables here
   if (!config.API_URL) {
@@ -58,7 +58,7 @@ validateConfig();
 if (config.isDevelopment && config.ENABLE_DEBUG) {
   console.group('🔧 Environment Configuration');
   console.table({
-    'API URL': config.API_URL,
+    //'API URL': config.API_URL,
     'Use Mock API': config.USE_MOCK_API,
     'Environment': import.meta.envNODE_ENV,
     'App Name': config.APP_NAME,
