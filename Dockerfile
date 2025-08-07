@@ -4,13 +4,15 @@ WORKDIR /app
 
 COPY package.json .
 
+COPY .env  .
+
 RUN npm install
 
 RUN npm i -g serve
 
-COPY . .
+RUN npm run build
 
-RUN  npm run build
+COPY . .
 
 EXPOSE 3000
 
