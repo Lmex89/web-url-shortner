@@ -24,12 +24,12 @@ const UrlShortenerPrime = () => {
   // Debug environment configuration on component mount
   useEffect(() => {
     console.group('🔧 URL Shortener Configuration Debug');
-    console.log('API URL:', config.API_URL);
+    //console.log('API URL:', config.API_URL);
     console.log('Use Mock API:', config.USE_MOCK_API);
     console.log('Service being used:', config.USE_MOCK_API ? 'MOCK' : 'REAL');
     
     // Show all REACT_APP_ environment variables
-    console.log('All REACT_APP_ variables:');
+    //console.log('All REACT_APP_ variables:');
     Object.keys(import.meta.env)
       .filter(key => key.startsWith('VITE_REACT_APP_'))
       .forEach(key => {
