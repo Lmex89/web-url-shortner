@@ -26,7 +26,7 @@ const config = {
 
   // Environment Detectio
   isDevelopment: import.meta.env.DEV === 'development',
-  isProduction: import.meta.env.PROD === 'production',
+  isProduction: import.meta.env.NODE_ENV === 'production',
   isTesting: import.meta.env.DEV === 'test',
 };
 
@@ -36,7 +36,8 @@ const config = {
 const validateConfig = () => {
   const requiredVars = [];
 
-  console.log("mis variables son ",config)
+  console.log("mis variables son ",import.meta.env.NODE_ENV)
+  console.log("mis variables son ",import.meta.env.PROD)
 
   // Add required variables here
   if (!config.API_URL) {
