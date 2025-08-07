@@ -33,7 +33,7 @@ const UrlShortenerPrime = () => {
     Object.keys(import.meta.env)
       .filter(key => key.startsWith('VITE_REACT_APP_'))
       .forEach(key => {
-        console.log(`  ${key}: ${import.meta.env[key]}`);
+        //console.log(`  ${key}: ${import.meta.env[key]}`);
       });
     console.groupEnd();
   }, []);
