@@ -1,0 +1,44 @@
+# .github/workflows/deploy.yml
+name: Deploy to Home Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: self-hosted
+
+    # Make the secret available as an environment variable for the job
+    env:
+      BACK_SHORTENER_API_URL: ${{ secrets.BACK_SHORTENER_API_URL }}
+
+    steps:
+      - name: 1. Checkout main branch
+        uses: actions/checkout@v4
+
+      # 👇 THIS IS THE NEW STEP YOU ARE ADDING 👇
+      - name: 2. Inject Site Key
+        run: |
+          # This script runs on the checked-out code before the Docker build
+          if [ "$BACK_SHORTENER_API_URL" != "None" ] && [ "$BACK_SHORTENER_API_URL" != "" ]; then
+            echo "✅ Site key found. Injecting into HTML file..."
+            sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" docker-compose.yaml
+          else
+            echo "⚠️ Site key not set. Skipping replacement."
+          fi
+
+      - name: 3. Deploy Updated Version with Docker Compose
+        run: |
+          cd $GITHUB_WORKSPACE
+          echo "🚀 Building and deploying new version..."
+
+          # Docker Compose will now use the modified source files for the build
+          docker-compose up -d --build
+          
+          echo "🧹 Pruning old Docker images..."
+          docker image prune -f
+
+          echo "✅ Deployment complete!"
