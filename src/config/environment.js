@@ -24,10 +24,10 @@ const config = {
   ENABLE_DEBUG: import.meta.env.VITE_REACT_APP_ENABLE_DEBUG === 'true' || false,
   SHOW_DEV_TOOLS: import.meta.env.VITE_REACT_APP_SHOW_DEV_TOOLS === 'true' || false,
 
-  // Environment Detection
-  isDevelopment: import.meta.env.NODE_ENV === 'development',
-  isProduction: import.meta.env.NODE_ENV === 'production',
-  isTesting: import.meta.env.NODE_ENV === 'test',
+  // Environment Detectio
+  isDevelopment: import.meta.env.VITE_NODE_ENV === 'development',
+  isProduction: import.meta.env.VITE_NODE_ENV === 'production',
+  isTesting: import.meta.env.VITE_NODE_ENV === 'test',
 };
 
 /**
