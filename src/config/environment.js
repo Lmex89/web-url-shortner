@@ -36,6 +36,8 @@ const config = {
 const validateConfig = () => {
   const requiredVars = [];
 
+  console.log(config)
+
   // Add required variables here
   if (!config.API_URL) {
     requiredVars.push('VITE_REACT_APP_API_URL');
