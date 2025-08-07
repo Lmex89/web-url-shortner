@@ -10,7 +10,7 @@ services:
       - "3010:3000"
     environment:
       # Production environment variables
-      - MODE_ENV=production
+      - NODE_ENV=production
       - VITE_REACT_APP_API_URL=REPLACE_API_URL
       - VITE_REACT_APP_USE_MOCK_API=false
       - VITE_REACT_APP_ENABLE_DEBUG=false
