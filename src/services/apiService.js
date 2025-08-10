@@ -20,7 +20,7 @@ apiClient.interceptors.request.use(
     
     // ✅ BEST PRACTICE: Securely add the API key from environment variables.
     // This ensures every request is authenticated without repeating code.
-    const apiKey = config.API_KEY; // Assuming your config loads this from .env
+    const apiKey = config.API_KEY_CREATE; // Assuming your config loads this from .env
     
     if (apiKey) {
       requestConfig.headers['x-api-key'] = apiKey;
