@@ -29,7 +29,7 @@ apiClient.interceptors.request.use(
       console.warn('⚠️ API key is missing. Requests may fail authentication.');
     }
 
-    console.log('🔧 Request headers:', requestConfig.headers);
+    //console.log('🔧 Request headers:', requestConfig.headers);
     return requestConfig;
   },
   (error) => {
