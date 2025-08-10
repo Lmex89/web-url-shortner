@@ -14,6 +14,7 @@ jobs:
     # Make the secret available as an environment variable for the job
     env:
       BACK_SHORTENER_API_URL: ${{ secrets.BACK_SHORTENER_API_URL }}
+      CREATE_API_KEY : ${{secrets.CREATE_API_KEY}}
 
     steps:
       - name: 1. Checkout main branch
@@ -28,7 +29,9 @@ jobs:
             echo "✅ Site key found. Injecting into HTML file..."
             mv .env.example .env 
             sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" docker-compose.yaml
+            sed -i "s|REPLACE_CREATE_API_KEY|${CREATE_API_KEY}|g" docker-compose.yaml
             sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" .env
+            sed -i "s|REPLACE_CREATE_API_KEY|${CREATE_API_KEY}|g" .env
             sed -i "s|REPLACE_API_URL|${BACK_SHORTENER_API_URL}|g" src/config/environment.js
           else
             echo "⚠️ Site key not set. Skipping replacement."

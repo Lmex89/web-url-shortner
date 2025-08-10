@@ -15,6 +15,7 @@ services:
       - VITE_REACT_APP_USE_MOCK_API=false
       - VITE_REACT_APP_ENABLE_DEBUG=false
       - VITE_REACT_APP_ENABLE_ANALYTICS=true
+      - VITE_API_KEY=REPLACE_CREATE_API_KEY
     restart: unless-stopped
     networks:
       - url-shortener-network
