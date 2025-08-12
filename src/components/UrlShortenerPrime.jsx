@@ -173,8 +173,11 @@ const UrlShortenerPrime = () => {
     <div className="text-center">
       <div className="flex align-items-center justify-content-center mb-3">
         <i className="pi pi-link text-6xl text-blue-500 mr-3"></i>
-        <h1 className="text-4xl font-bold text-blue-600 m-0">URL Shortener</h1>
+        <h1 className="text-4xl font-bold text-blue-600 m-0">URL Shortener </h1>
       </div>
+      <p className="text-600 text-lg m-0">
+        By Lmex89 in github
+      </p>
       <p className="text-600 text-lg m-0">
         Transform long URLs into short, shareable links
       </p>
