@@ -8,7 +8,6 @@
  * Environment configuration object
  * All React environment variables must start with VITE_REACT_APP_
  */
-
 const config = {
   // API Configuration
   API_URL: import.meta.env.VITE_REACT_APP_API_URL || "REPLACE_API_URL",
