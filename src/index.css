@@ -353,7 +353,7 @@ code {
 /* Badge Enhancements */
 .p-badge {
   font-weight: 600 !important;
-  padding: 0.5rem 1rem !important;
+  padding: 0.1rem 1rem !important;
   border-radius: 20px !important;
 }
 
